@@ -1,0 +1,23 @@
+name: phpunit
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Generate .env test file
+        run: cp .env.test .env
+        working-directory: ./app
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+        working-directory: ./app
+
+      - name: PHPUnit
+        run: vendor/bin/phpunit tests/
+        working-directory: ./app
