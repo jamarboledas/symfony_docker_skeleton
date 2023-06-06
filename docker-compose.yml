@@ -19,7 +19,7 @@ services:
     ports:
       - '9000:9000'
     volumes:
-      - ./app:/var/www/symfony_docker
+      - ./app:/var/www/symfony_docker_skeleton
     depends_on:
       - database
   nginx:
@@ -28,7 +28,7 @@ services:
     ports:
       - '8080:80'
     volumes:
-      - ./app:/var/www/symfony_docker
+      - ./app:/var/www/symfony_docker_skeleton
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
