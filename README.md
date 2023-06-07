@@ -11,6 +11,15 @@ make build-project
 Once executed, the application will do the followings steps:
 
 1. Build all containers.
-1.1. Database.
-1.2. PHP.
-1.3. Nginx.
+    - Database.
+    - PHP.
+    - Nginx.
+2. Composer install
+
+## Run tests
+
+Run tests manually.
+
+```
+make tests
+```
